@@ -10,7 +10,7 @@
 // },
 // {
 //    identifier: model, label: 'model', type: multiple,
-//    values:['gemini-1.5-flash-latest','gemini-1.5-pro-latest','gemini-1.0-pro']
+//    values:['gemini-1.5-pro','gemini-1.5-flash']
 //  }, 
 // {
 //   identifier: prompt, label: 'Improve Writing Prompt', type: string,
@@ -24,7 +24,7 @@ const axios = require("axios");
 async function generateContent(input, options) {
   let prompt;
   if(options.prompt.length === 0){
-     prompt="I will give you text content, you will rewrite it and output a better version of my text. Correct spelling, grammar, and punctuation errors in the given text. Keep the meaning the same. Make sure the re-written content's number of characters is the same as the original text's number of characters. Do not alter the original structure and formatting outlined in any way. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text:{input}";
+     prompt="I will give you text content, you will rewrite it and output a better version of my text. Correct spelling, grammar, and punctuation errors in the given text. Keep the meaning the same. Do not alter the original structure and formatting outlined in any way. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text: {input}";
   } 
   else{
      prompt=options.prompt;
