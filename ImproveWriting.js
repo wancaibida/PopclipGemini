@@ -24,7 +24,7 @@ const axios = require("axios");
 async function generateContent(input, options) {
   let prompt;
   if(options.prompt.length === 0){
-     prompt="I will give you text content, you will rewrite it and output a better version of my text. Correct spelling, grammar, and punctuation errors in the given text. Keep the meaning the same. Do not alter the original structure and formatting outlined in any way. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text: {input}";
+     prompt="I will give you text content, you will rewrite it and output a better version of my text. Correct spelling, grammar, and punctuation errors in the given text. Keep the meaning the same. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text: {input}";
   } 
   else{
      prompt=options.prompt;
@@ -40,7 +40,19 @@ async function generateContent(input, options) {
     "safetySettings": [
       {
         "category": "HARM_CATEGORY_HARASSMENT",
-        "threshold": "BLOCK_ONLY_HIGH"
+        "threshold": "BLOCK_NONE"
+      },
+      {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_NONE"
+      },
+      {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_NONE"
+      },
+      {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_NONE"
       }
     ],
     "generationConfig": {
